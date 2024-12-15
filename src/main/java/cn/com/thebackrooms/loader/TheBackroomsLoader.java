@@ -18,7 +18,7 @@ import java.util.jar.JarFile;
 
 public class TheBackroomsLoader {
 
-    private static final String MOD_LOADER_URL = "https://api.thebackrooms.com.cn:11451/info/mod_loader";
+    private static final String MOD_LOADER_URL = "https://api.thebackrooms.com.cn:19198/info/mod_loader";
     private static final Path MOD_LOADER_PATH = Path.of("").resolve(".thebackrooms").resolve("mod_loader.jar");
 
     public static void premain(String agentArgs, Instrumentation inst) {
