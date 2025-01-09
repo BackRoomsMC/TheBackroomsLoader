@@ -33,6 +33,7 @@ public class TheBackroomsLoader {
                     client.send(HttpRequest.newBuilder(URI.create(info[1])).GET().build(), HttpResponse.BodyHandlers.ofFile(MOD_LOADER_PATH));
                 } catch (Throwable t) {
                     showDialog("无法连接至TheBackrooms API, 请检查你的网络连接: " + t);
+                    t.printStackTrace();
                     System.exit(1);
                 }
                 if (!checkHash(MOD_LOADER_PATH, info[0]))
@@ -61,7 +62,7 @@ public class TheBackroomsLoader {
     }
 
     private static void showDialog(String message) {
-        if (!GraphicsEnvironment.isHeadless())
+        if (GraphicsEnvironment.isHeadless())
             return;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
