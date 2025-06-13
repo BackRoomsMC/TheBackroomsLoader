@@ -18,7 +18,7 @@ import java.util.jar.JarFile;
 
 public class TheBackroomsLoader {
 
-    private static final String MOD_LOADER_URL = "https://api.thebackrooms.com.cn:19810/info/mod_loader";
+    private static final String MOD_LOADER_URL = "https://api.thebackrooms.com.cn:19198/info/mod_loader";
     private static final Path MOD_LOADER_PATH = Path.of("").resolve(".thebackrooms").resolve("mod_loader.jar");
 
     public static void premain(String agentArgs, Instrumentation inst) {
@@ -32,7 +32,7 @@ public class TheBackroomsLoader {
                 try {
                     client.send(HttpRequest.newBuilder(URI.create(info[1])).GET().build(), HttpResponse.BodyHandlers.ofFile(MOD_LOADER_PATH));
                 } catch (Throwable t) {
-                    showDialog("无法连接至TheBackrooms API, 请检查你的网络连接: " + t);
+                    showDialog("无法连接至 TheBackrooms API, 请检查你的网络连接: " + t);
                     t.printStackTrace();
                     System.exit(1);
                 }
